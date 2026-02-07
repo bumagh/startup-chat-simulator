@@ -1,0 +1,1150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans SC', 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0d1320 0%, #1a2234 50%, #0c4a6e 100%);
+  min-height: 100vh;
+  color: #e2e8f0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a2234;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0ea5e9;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.chat-bubble {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(14, 165, 233, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.8);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.market-positive {
+  color: #10b981;
+}
+
+.market-negative {
+  color: #ef4444;
+}
+
+.typing-indicator span {
+  animation: typing 1.4s infinite both;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}
+
+/* 游戏动画效果 */
+
+/* 消息弹出动画 */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.msg-user {
+  animation: slideInRight 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.msg-ai {
+  animation: slideInLeft 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 奖励弹出动画 */
+@keyframes rewardPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.reward-pop {
+  animation: rewardPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 数字增长动画 */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.count-up {
+  animation: countUp 0.3s ease-out;
+}
+
+/* 按钮悬浮动画 */
+@keyframes buttonHover {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.btn-game:hover {
+  animation: buttonHover 0.3s ease;
+}
+
+/* 成功闪烁 */
+@keyframes successFlash {
+  0% {
+    background-color: rgba(16, 185, 129, 0);
+  }
+  50% {
+    background-color: rgba(16, 185, 129, 0.3);
+  }
+  100% {
+    background-color: rgba(16, 185, 129, 0);
+  }
+}
+
+.success-flash {
+  animation: successFlash 0.5s ease;
+}
+
+/* 失败摇晃 */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-5px);
+  }
+  40%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}
+
+/* 金币飞入动画 */
+@keyframes coinFly {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.coin-fly {
+  animation: coinFly 0.8s ease-out forwards;
+}
+
+/* 经验条增长 */
+@keyframes expGrow {
+  from {
+    width: 0;
+  }
+}
+
+.exp-bar {
+  animation: expGrow 0.8s ease-out;
+}
+
+/* 选项卡片悬浮 */
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.choice-card:hover {
+  animation: cardFloat 0.3s ease forwards;
+  background: rgba(14, 165, 233, 0.15);
+  border-color: rgba(14, 165, 233, 0.5);
+}
+
+/* 任务完成星星 */
+@keyframes starBurst {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.3) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.star-burst {
+  animation: starBurst 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 进度条脉动 */
+@keyframes progressPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.progress-pulse {
+  animation: progressPulse 1.5s ease infinite;
+}
+
+/* 快捷按钮弹跳 */
+.quick-btn {
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.quick-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+}
+
+.quick-btn:active {
+  transform: scale(0.95);
+}
+
+/* 阶段切换动画 */
+@keyframes phaseChange {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.phase-change {
+  animation: phaseChange 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 状态栏闪烁提示 */
+@keyframes statusBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.status-update {
+  animation: statusBlink 0.3s ease 3;
+}
+
+/* 选择数字按钮特效 */
+.choice-number {
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.choice-number::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.choice-number:active::after {
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+}
+
+/* 消息内容渐入 */
+@keyframes contentFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.msg-content {
+  animation: contentFade 0.3s ease 0.1s both;
+}
+
+/* 顾客头像入场动画 */
+@keyframes customerAvatarEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(10px);
+  }
+  50% {
+    transform: scale(1.1) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.customer-avatar-enter {
+  animation: customerAvatarEnter 0.4s ease-out both;
+}
+
+/* 顾客消息入场 */
+@keyframes customerMessageEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.customer-message-enter {
+  animation: customerMessageEnter 0.3s ease-out;
+}
+
+/* 市场卡片入场 */
+@keyframes marketCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.market-card-enter {
+  animation: marketCardEnter 0.4s ease-out both;
+}
+
+/* 市场反应入场 */
+@keyframes marketReactionEnter {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.market-reaction-enter {
+  animation: marketReactionEnter 0.3s ease-out;
+}
+
+/* 营销效果入场 */
+@keyframes marketingEffectEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.marketing-effect-enter {
+  animation: marketingEffectEnter 0.4s ease-out;
+}
+
+/* 数据闪烁效果 */
+@keyframes dataPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.data-pulse {
+  animation: dataPulse 2s ease-in-out infinite;
+}
+
+/* 趋势线动画 */
+@keyframes trendLineGrow {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.trend-line {
+  stroke-dasharray: 1000;
+  animation: trendLineGrow 1.5s ease-out forwards;
+}
+
+/* 进度条填充动画 */
+@keyframes progressFill {
+  from {
+    width: 0;
+  }
+}
+
+.progress-fill {
+  animation: progressFill 1s ease-out;
+}
+
+/* 指标数字跳动 */
+@keyframes numberBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  75% {
+    transform: translateY(2px);
+  }
+}
+
+.number-bounce {
+  animation: numberBounce 0.4s ease-out;
+}
+
+/* 新消息提示 */
+@keyframes newMessagePing {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.new-message-ping::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: currentColor;
+  animation: newMessagePing 1s ease-out infinite;
+}
+
+/* 决策卡片入场 */
+@keyframes decisionCardEnter {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.decision-card-enter {
+  animation: decisionCardEnter 0.4s ease-out both;
+}
+
+/* 策略提示入场 */
+@keyframes strategyTipEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.strategy-tip-enter {
+  animation: strategyTipEnter 0.3s ease-out both;
+}
+
+/* 竞争者卡片入场 */
+@keyframes competitorCardEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.competitor-card-enter {
+  animation: competitorCardEnter 0.3s ease-out;
+}
+
+/* 徽章获得动画 */
+@keyframes badgeEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.badge-enter {
+  animation: badgeEnter 0.5s ease-out;
+}
+
+/* 策略评分闪烁 */
+@keyframes scoreGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+.score-glow {
+  animation: scoreGlow 2s ease-in-out infinite;
+}
+
+/* 风险警告闪烁 */
+@keyframes riskPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.risk-pulse {
+  animation: riskPulse 1.5s ease-in-out infinite;
+}
+
+/* 推荐标签动画 */
+@keyframes recommendBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.recommend-bounce {
+  animation: recommendBounce 1s ease-in-out infinite;
+}
+
+/* ========== 增强游戏动画效果 ========== */
+
+/* 成就解锁弹窗 */
+@keyframes achievementUnlock {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.5);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(20px) scale(1.1);
+  }
+  50% {
+    transform: translateY(0) scale(1);
+  }
+  70% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.achievement-unlock {
+  animation: achievementUnlock 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 金币爆炸效果 */
+@keyframes coinExplode {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 0), var(--ty, -50px)) scale(0.5);
+  }
+}
+
+.coin-particle {
+  animation: coinExplode 0.8s ease-out forwards;
+}
+
+/* 升级光环 */
+@keyframes levelUpGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 30px 20px rgba(250, 204, 21, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0);
+  }
+}
+
+.level-up-glow {
+  animation: levelUpGlow 1s ease-out;
+}
+
+/* 随机事件出现 */
+@keyframes eventAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-10deg);
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(3deg);
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.event-appear {
+  animation: eventAppear 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 紧急事件闪烁 */
+@keyframes urgentFlash {
+  0%, 100% {
+    border-color: rgba(239, 68, 68, 0.5);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    border-color: rgba(239, 68, 68, 1);
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.6);
+  }
+}
+
+.urgent-flash {
+  animation: urgentFlash 0.8s ease-in-out infinite;
+}
+
+/* 机会闪烁 */
+@keyframes opportunityGlow {
+  0%, 100% {
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    border-color: rgba(34, 197, 94, 1);
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.6);
+  }
+}
+
+.opportunity-glow {
+  animation: opportunityGlow 1s ease-in-out infinite;
+}
+
+/* 技能提升动画 */
+@keyframes skillUp {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  75% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.skill-up {
+  animation: skillUp 0.5s ease-out;
+}
+
+/* 倒计时脉动 */
+@keyframes countdownPulse {
+  0%, 100% {
+    transform: scale(1);
+    color: inherit;
+  }
+  50% {
+    transform: scale(1.2);
+    color: #ef4444;
+  }
+}
+
+.countdown-pulse {
+  animation: countdownPulse 1s ease-in-out infinite;
+}
+
+/* 浮动提示 */
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+.float-up {
+  animation: floatUp 1.5s ease-out forwards;
+}
+
+/* 连击效果 */
+@keyframes comboEffect {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.combo-effect {
+  animation: comboEffect 0.4s ease-out;
+}
+
+/* 彩虹边框（特殊奖励） */
+@keyframes rainbowBorder {
+  0% { border-color: #ef4444; }
+  16% { border-color: #f97316; }
+  33% { border-color: #facc15; }
+  50% { border-color: #22c55e; }
+  66% { border-color: #3b82f6; }
+  83% { border-color: #a855f7; }
+  100% { border-color: #ef4444; }
+}
+
+.rainbow-border {
+  animation: rainbowBorder 3s linear infinite;
+  border-width: 2px;
+}
+
+/* 打字机效果容器 */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing-effect 2s steps(30, end);
+}
+
+@keyframes typing-effect {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* 粒子背景 */
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  animation: particleFloat 10s linear infinite;
+}
+
+/* 波纹点击效果 */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.ripple-effect:active::after {
+  animation: ripple 0.6s linear;
+}
+
+/* 心跳效果 */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+.heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* 翻转卡片 */
+@keyframes flipIn {
+  0% {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotateY(-10deg);
+  }
+  70% {
+    transform: perspective(400px) rotateY(10deg);
+  }
+  100% {
+    transform: perspective(400px) rotateY(0);
+    opacity: 1;
+  }
+}
+
+.flip-in {
+  animation: flipIn 0.6s ease-out;
+}
+
+/* 弹性入场 */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.bounce-in {
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* 滑动淡出 */
+@keyframes slideOutRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
+
+.slide-out-right {
+  animation: slideOutRight 0.3s ease-in forwards;
+}
+
+/* 闪光效果 */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shine 2s infinite;
+}
+
+/* 抖动警告 */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+.wiggle {
+  animation: wiggle 0.3s ease-in-out 3;
+}
+
+/* 渐变流动背景 */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-flow {
+  background-size: 200% 200%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+/* 模糊入场 */
+@keyframes blurIn {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.blur-in {
+  animation: blurIn 0.5s ease-out;
+}
+
+/* 3D旋转徽章 */
+@keyframes badge3DRotate {
+  0% {
+    transform: perspective(500px) rotateY(0);
+  }
+  100% {
+    transform: perspective(500px) rotateY(360deg);
+  }
+}
+
+.badge-3d-rotate {
+  animation: badge3DRotate 3s linear infinite;
+}
+
+/* 能量充满 */
+@keyframes energyFill {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.energy-fill {
+  background: linear-gradient(90deg, #22c55e 50%, #1f2937 50%);
+  background-size: 200% 100%;
+  animation: energyFill 1s ease-out forwards;
+}
+
+/* 火焰效果 */
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scaleY(1) translateY(0);
+    opacity: 1;
+  }
+  25% {
+    transform: scaleY(1.1) translateY(-2px);
+  }
+  50% {
+    transform: scaleY(0.9) translateY(1px);
+    opacity: 0.8;
+  }
+  75% {
+    transform: scaleY(1.05) translateY(-1px);
+  }
+}
+
+.flame-flicker {
+  animation: flameFlicker 0.5s ease-in-out infinite;
+}
+
+/* 淡入淡出循环（用于提示） */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  20%, 80% { opacity: 1; }
+}
+
+.fade-in-out {
+  animation: fadeInOut 3s ease-in-out infinite;
+}
+
+/* 从右侧滑入 */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
